@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+
+  - name: chinookdb
+    schema: public
+    tables:
+      - name: Album
+      - name: Artist
+      - name: Customer
+      - name: Employee
+      - name: Genre
+      - name: Invoice
+      - name: InvoiceLine
+      - name: MediaType
+      - name: Playlist
+      - name: PlaylistTrack
+      - name: Track
