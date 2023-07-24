@@ -6,6 +6,7 @@ CREATE SCHEMA IF NOT EXISTS chinook_dw;
    Script: Chinook_PostgreSql.sql
    Description: Creates and populates the Chinook database.
    DB Server: PostgreSql
+   Credits: https://github.com/lerocha/chinook-database/blob/master/ChinookDatabase/DataSources/Chinook_PostgreSql.sql
 
 ********************************************************************************/
 
