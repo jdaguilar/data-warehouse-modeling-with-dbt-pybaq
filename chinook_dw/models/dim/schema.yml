@@ -1,0 +1,154 @@
+
+version: 2
+
+models:
+  - name: dim_customer
+    description: >
+      This table contains data from the source system about customers and their associated details.
+
+    columns:
+      - name: customer_id
+        description: Unique identifier for each customer.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('fact_sales')
+              field: customer_id
+
+      - name: first_name
+        description: First name of the customer.
+        tests:
+          - not_null
+
+      - name: last_name
+        description: Last name of the customer.
+        tests:
+          - not_null
+
+      - name: company
+        description: The company associated with the customer.
+        tests:
+          - not_null
+
+      - name: city
+        description: City where the customer is located.
+        tests:
+          - not_null
+
+      - name: state
+        description: State/Province where the customer is located.
+        tests:
+          - not_null
+
+      - name: country
+        description: Country where the customer is located.
+        tests:
+          - not_null
+
+      - name: employee_id
+        description: Identifier of the support representative associated with the customer.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_employee')
+              field: employee_id
+
+  - name: dim_employee
+    description: >
+      This table contains information about employees in the company.
+      It is a dimension table for employee-related data.
+    
+    columns:
+      - name: employee_id
+        description: Unique identifier for each employee.
+        tests:
+          - unique
+          - not_null
+
+      - name: last_name
+        description: Last name of the employee.
+        tests:
+          - not_null
+
+      - name: first_name
+        description: First name of the employee.
+        tests:
+          - not_null
+
+      - name: title
+        description: Job title or position of the employee.
+        tests:
+          - not_null
+
+      - name: birth_date
+        description: Date of birth of the employee.
+        tests:
+          - not_null
+
+      - name: hire_date
+        description: Date when the employee was hired.
+        tests:
+          - not_null
+
+
+      - name: city
+        description: City where the employee is located.
+        tests:
+          - not_null
+
+      - name: country
+        description: Country where the employee is located.
+        tests:
+          - not_null
+
+  - name: dim_track
+    description: >
+      This model represents a dimension table containing information about music tracks,
+      including their track details, associated album, genre, composer, duration, unit price, and media type.
+
+    columns:
+      - name: track_id
+        description: The unique identifier for the track.
+        tests:
+          - unique
+
+      - name: track_name
+        description: The name of the track.
+        tests:
+          - not_null
+
+      - name: artist_name
+        description: The name of the artist associated with the track's album.
+        tests:
+          - not_null
+
+      - name: album_name
+        description: The name of the album that the track belongs to.
+        tests:
+          - not_null
+
+      - name: genre
+        description: The genre of the track.
+        tests:
+          - not_null
+
+      - name: composer_name
+        description: The name of the composer of the track.
+        tests:
+          - not_null
+
+      - name: duration_milliseconds
+        description: The duration of the track in milliseconds.
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: The unit price of the track.
+        tests:
+          - not_null
+
+      - name: media_type_name
+        description: The name of the media type associated with the track.
+        tests:
+          - not_null

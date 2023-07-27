@@ -1,0 +1,55 @@
+
+models:
+  - name: fact_sales
+    description: >
+      This model retrieves detailed information about sales, including invoice lines, customers, employees, and locations.
+
+    columns:
+      - name: invoice_date
+        description: The date of the invoice.
+        tests:
+          - unique
+          - not_null
+
+      - name: invoice_id
+        description: The unique identifier for the invoice.
+        tests:
+          - unique
+          - not_null
+
+      - name: invoice_line_id
+        description: The unique identifier for each invoice line item.
+        tests:
+          - unique
+          - not_null
+
+      - name: track_id
+        description: The identifier for the track associated with the invoice line.
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: The unique identifier for the customer who made the purchase.
+        tests:
+          - unique
+          - not_null
+
+      - name: employee_id
+        description: The identifier for the support representative associated with the invoice.
+        tests:
+          - not_null
+
+      - name: location_id
+        description: The identifier for the location associated with the invoice's billing city and country.
+        tests:
+          - not_null
+
+      - name: quantity
+        description: The quantity of items purchased in the invoice line.
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: The unit price of each item in the invoice line.
+        tests:
+          - not_null
