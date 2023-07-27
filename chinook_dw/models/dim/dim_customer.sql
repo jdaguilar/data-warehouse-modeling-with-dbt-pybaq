@@ -10,5 +10,5 @@ select
     city,
     state,
     country,
-    support_rep_id
+    support_rep_id as employee_id
 from stg_customer
