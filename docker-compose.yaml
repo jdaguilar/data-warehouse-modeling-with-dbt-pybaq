@@ -1,25 +1,20 @@
-# Credits:
-# https://levelup.gitconnected.com/creating-and-filling-a-postgres-db-with-docker-compose-e1607f6f882f
-
-version: "3.7"
+version: '3.7'
 services:
   postgres:
-    image: postgres:latest
+    image: 'postgres:latest'
     restart: always
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
-      - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
-
-  metabase:
-    image: metabase/metabase:latest
+      - './docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/' 
+    image: 'metabase/metabase:latest'
     ports:
-      - 3000:3000
+      - '3000:3000'
     healthcheck:
-      test: curl --fail -I http://localhost:3000/api/health || exit 1
+      test: 'curl --fail -I http://localhost:3000/api/health || exit 1'
       interval: 15s
       timeout: 5s
       retries: 5
