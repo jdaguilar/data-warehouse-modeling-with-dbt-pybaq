@@ -1,0 +1,15 @@
+version: 2
+
+macros:
+  - name: table_with_lower_columns
+    description: >
+      A dbt model that leverages the 'table_with_lower_columns' macro to generate a SELECT query with column aliases in lowercase.
+      The macro takes a database source and table name as input and retrieves the columns from the specified table in the source database.
+      The SELECT query produced by the macro aliases each column with its name converted to lowercase.
+    arguments:
+      - name: db_source
+        type: string
+        description: The name of the source database.
+      - name: table_name
+        type: string
+        description: Name of table.
