@@ -9,7 +9,11 @@ stg_invoice_line as (
 ),
 dim_customer as (
     select *
-    FROM {{ ref('stg_customer') }}
+    FROM {{ ref('dim_customer') }}
+),
+dim_track as (
+    select *
+    FROM {{ ref('dim_track') }}
 ),
 dim_location as (
     select * from {{ ref('dim_location') }}
@@ -21,7 +25,7 @@ select
     sil.invoice_line_id,
 	sil.track_id,
 	si.customer_id,
-    dc.support_rep_id as employee_id,
+    dc.employee_id,
 	dl.location_id,
 	sil.quantity,
 	sil.unit_price
@@ -32,4 +36,6 @@ LEFT JOIN dim_customer dc
     ON si.customer_id = dc.customer_id
 LEFT JOIN dim_location dl
     ON si.billing_city = dl.city AND si.billing_country = dl.country
+LEFT JOIN dim_track dt
+    ON sil.track_id = dt.track_id
 order by invoice_date desc
