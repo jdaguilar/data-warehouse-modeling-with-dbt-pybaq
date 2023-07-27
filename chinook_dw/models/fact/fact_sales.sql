@@ -21,7 +21,7 @@ select
     sil.invoice_line_id,
 	sil.track_id,
 	si.customer_id,
-    dc.support_rep_id,
+    dc.support_rep_id as employee_id,
 	dl.location_id,
 	sil.quantity,
 	sil.unit_price
