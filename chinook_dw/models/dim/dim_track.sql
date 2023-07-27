@@ -22,7 +22,7 @@ tmp_album as (
 ),
 dim_track as (
     select tr.track_id,
-        tr.name as song_name,
+        tr.name as track_name,
         tmp_album.artist_name,
         tmp_album.album_name,
         sc_genre.name as genre,
