@@ -33,10 +33,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   chinook_dw:
     dim:
+      tags: ['dim']
       +materialized: table
 
     fact:
+      tags: ['fact']
       +materialized: table
 
     staging:
+      tags: ['staging']
       +materialized: view
