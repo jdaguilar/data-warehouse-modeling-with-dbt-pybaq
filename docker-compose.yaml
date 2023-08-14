@@ -10,6 +10,7 @@ services:
       - '5432:5432'
     volumes:
       - './docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/' 
+  metabase:
     image: 'metabase/metabase:latest'
     ports:
       - '3000:3000'
