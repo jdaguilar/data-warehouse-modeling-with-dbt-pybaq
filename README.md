@@ -30,3 +30,7 @@ docker-compose up -d
 pip install dbt-postgres
 ```
 
+# Colaboración
+Si encuentras algún BUG o consideras que puedes ayudar a mejorar el código, sientete libre de abrir un Pull Request con tus sugerencias de cambio.
+
+
